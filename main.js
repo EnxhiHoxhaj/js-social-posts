@@ -58,53 +58,47 @@ const posts = [
 
 // selezioniamo il nostro contenitore dal DOM
 
-let feedSocial = document.getElementById("container")
-
-//  console.log(posts);
-// creiamo un copia del mio array
-
-const copiaPost = {...posts};
-// console.log(copiaPost);
-
-// ciclo map per riordinare le proprietà dei miei oggetti
-
-const newPost = posts.map((singlePost) => {
-    const { author, created, content, media, likes } = singlePost;
-    return {
-        author, 
-        created, 
-        content, 
-        media, 
-        likes
-    };
-
-});
-
-// console.log(newPost);
-
+let feedSocial = document.getElementById("container");
 
 // ciclo sul nuovo array per estrarre tutti i valori
 
-newPost.forEach((postElement) => {
-    console.log(postElement);
-    let inFeed = `
+posts.forEach((singlePost) => {
+    // console.log(post.author);
+    feedSocial.innerHTML = `
     <div class="post">
-            <div class="post__header">
-                <div class="post-meta">                    
-                    <div class="post-meta__icon">
-                        <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
-                    </div>
-                    <div class="post-meta__data">
-                        <div class="post-meta__author">Phil Mangione</div>
-                        <div class="post-meta__time">4 mesi fa</div>
-                    </div>                    
+        <div class="post__header">
+            <div class="post-meta">                    
+                <div class="post-meta__icon">
+                    <img class="profile-pic" src="${singlePost.author.image}" alt="Phil Mangione">                    
                 </div>
+                <div class="post-meta__data">
+                    <div class="post-meta__author">${singlePost.author.name}</div>
+                    <div class="post-meta__time">${singlePost.created}</div>
+                </div>                    
             </div>
+        </div>
+        <div class="post__text">${singlePost.content}</div>
+        <div class="post__image">
+            <img src="${singlePost.media}" alt="">
+        </div>
+        <div class="post__footer">
+            <div class="likes js-likes">
+                <div class="likes__cta">
+                    <a class="like-button  js-like-button" href="#" data-postid="${singlePost.id}">
+                        <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="like-button__label">Mi Piace</span>
+                    </a>
+                </div>
+                <div class="likes__counter">
+                    Piace a <b id="like-counter-1" class="js-likes-counter">${singlePost.likes}</b> persone
+                </div>
+            </div> 
+        </div>   
     
-    
-    </div>
-    ` 
+    </div>`;
 });
+
+
 
 
 
