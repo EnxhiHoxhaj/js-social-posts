@@ -55,3 +55,9 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+ // selezioniamo il nostro contenitore dal DOM
+
+let feedSocial = document.getElementById("container")
+
+// creiamo un ciclo sull'array per estrare le info del post
+
