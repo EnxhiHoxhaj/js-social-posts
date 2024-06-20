@@ -96,8 +96,21 @@ posts.forEach((singlePost) => {
         </div>   
     
     </div>`;
+
+    // aggiungere un click
+    
+
+    
 });
 
+    let likeButton = document.querySelector(".like-button");
+
+
+    likeButton.addEventListener("click", 
+        function() {
+            likeButton.classList.add("like-button--liked");
+        }
+    );
 
 
 
