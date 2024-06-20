@@ -64,7 +64,7 @@ let feedSocial = document.getElementById("container");
 
 posts.forEach((singlePost) => {
     // console.log(post.author);
-    feedSocial.innerHTML = `
+    feedSocial.innerHTML += `
     <div class="post">
         <div class="post__header">
             <div class="post-meta">                    
