@@ -55,9 +55,32 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
- // selezioniamo il nostro contenitore dal DOM
+
+ console.log(posts);
+// creiamo un copia del mio array
+
+const copiaPost = [...posts];
+
+// selezioniamo il nostro contenitore dal DOM
 
 let feedSocial = document.getElementById("container")
 
-// creiamo un ciclo sull'array per estrare le info del post
+// ciclo map per riordinare le proprietà dei miei oggetti
+
+const newPost = posts.map((singlePost) => {
+    const { author, created, content, media, likes }= singlePost;
+    return {
+        author, 
+        created, 
+        content, 
+        media, 
+        likes
+    };
+
+});
+
+console.log(newPost);
+
+
+
 
