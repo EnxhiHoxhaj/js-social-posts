@@ -56,19 +56,20 @@ const posts = [
     }
 ];
 
- console.log(posts);
-// creiamo un copia del mio array
-
-const copiaPost = [...posts];
-
 // selezioniamo il nostro contenitore dal DOM
 
 let feedSocial = document.getElementById("container")
 
+//  console.log(posts);
+// creiamo un copia del mio array
+
+const copiaPost = {...posts};
+// console.log(copiaPost);
+
 // ciclo map per riordinare le proprietà dei miei oggetti
 
 const newPost = posts.map((singlePost) => {
-    const { author, created, content, media, likes }= singlePost;
+    const { author, created, content, media, likes } = singlePost;
     return {
         author, 
         created, 
@@ -79,8 +80,31 @@ const newPost = posts.map((singlePost) => {
 
 });
 
-console.log(newPost);
+// console.log(newPost);
 
+
+// ciclo sul nuovo array per estrarre tutti i valori
+
+newPost.forEach((postElement) => {
+    console.log(postElement);
+    let inFeed = `
+    <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">Phil Mangione</div>
+                        <div class="post-meta__time">4 mesi fa</div>
+                    </div>                    
+                </div>
+            </div>
+    
+    
+    </div>
+    ` 
+});
 
 
 
