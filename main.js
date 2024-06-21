@@ -100,16 +100,24 @@ posts.forEach((singlePost) => {
 });
 
 
-// aggiungere un click
 
+// seleziono i div dove aggiungere click 
 let likeButton = document.querySelectorAll(".like-button");
-console.log(likeButton);
+let contatori =document.querySelectorAll(".js-likes-counter");
+// aggiungere un click
 for(let i = 0; i < likeButton.length; i++) {
     let bottone = likeButton [i];
     bottone.addEventListener("click", 
         function(e) {
             e.preventDefault();
             bottone.classList.add("like-button--liked");
+            // ricavare i contatori
+            let contLikes = contatori[i]
+            let numeLikes = parseInt(contLikes.innerHTML);
+            // console.log(numeLikes);
+            // incrementiamo il numero di likes
+            numeLikes++;
+            contLikes.innerHTML = numeLikes;
         }
     );
     
