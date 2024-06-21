@@ -90,28 +90,27 @@ posts.forEach((singlePost) => {
                     </a>
                 </div>
                 <div class="likes__counter">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">${singlePost.likes}</b> persone
+                    Piace a <b id="${singlePost.id}" class="js-likes-counter">${singlePost.likes}</b> persone
                 </div>
             </div> 
         </div>   
     
     </div>`;
-
-    // aggiungere un click
-    
-
     
 });
 
-    let likeButton = document.querySelector(".like-button");
 
+// aggiungere un click
 
-    likeButton.addEventListener("click", 
-        function() {
-            likeButton.classList.add("like-button--liked");
+let likeButton = document.querySelectorAll(".like-button");
+console.log(likeButton);
+for(let i = 0; i < likeButton.length; i++) {
+    let bottone = likeButton [i];
+    bottone.addEventListener("click", 
+        function(e) {
+            e.preventDefault();
+            bottone.classList.add("like-button--liked");
         }
     );
-
-
-
-
+    
+}
